@@ -18,11 +18,13 @@ public class ChaoJiZhaDanRen extends JavaPlugin implements Listener{
 	
 	public void onEnable(){
 		getServer().getPluginManager().registerEvents(new Event(), this);
-		getLogger().info("³¬¼¶Õ¨µ¯ÈË²å¼ş³É¹¦ÆôÓÃ");
+		getServer().getPluginManager().registerEvents(new Items(), this);
+		getLogger().info("è¶…çº§ç‚¸å¼¹äººæ’ä»¶å·²æˆåŠŸå¯ç”¨");
+		loadcfg();
 	}
 	
 	public void onDisable(){
-		getLogger().info("³¬¼¶Õ¨µ¯ÈË²å¼ş³É¹¦¹Ø±Õ");		
+		getLogger().info("è¶…çº§ç‚¸å¼¹äººæ’ä»¶å·²æˆåŠŸå…³é—­");		
 	}
 	
 	public void loadcfg(){
@@ -42,16 +44,13 @@ public class ChaoJiZhaDanRen extends JavaPlugin implements Listener{
 		Bukkit.getServer().getScheduler().runTaskLater
 		(Bukkit.getServer().getPluginManager().getPlugin("ChaoJiZhaDanRen"), new Runnable() {
             
-            @SuppressWarnings("deprecation")
-			@Override
+            @Override
             public void run() {
             	ItemStack item = new ItemStack(Material.TNT);
             	ItemMeta meta = item.getItemMeta();
-            	meta.setDisplayName("¡ì4¡ìlÕ¨µ¯¡ì8(¡ìaÓÒ¼üµØÃæ°²·Å¡ì8)");
+            	meta.setDisplayName("Â§4Â§lç‚¸å¼¹Â§8(Â§aå³é”®å®‰æ”¾Â§8)");
             	item.setItemMeta(meta);
-            	
-            	p.getInventory().setHeldItemSlot(4);
-            	p.setItemInHand(item);
+            	p.getInventory().addItem(item);
                     
             }
     }, 80);
